@@ -1,0 +1,51 @@
+
+<br/><div class="mb-3">
+  
+  <button (click)="crearAlumnos()" mat-flat-button color="warn">
+    <mat-icon>add</mat-icon>
+    Agregar Alumno
+  </button>
+</div>
+<div class="hora"> {{ hora$ | async | json }}</div>
+
+<table mat-table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nombreCompleto">
+    <th mat-header-cell *matHeaderCellDef> Nombre completo</th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario | nombreCompleto}} </td>
+  </ng-container>
+
+  <!-- curso Column -->
+  <ng-container matColumnDef="curso">
+    <th mat-header-cell *matHeaderCellDef> Curso </th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.curso}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="carrera">
+    <th mat-header-cell *matHeaderCellDef> Carrera </th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.carrera}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="ver_detalle">
+    <th mat-header-cell *matHeaderCellDef> Detalle </th>
+    <td mat-cell *matCellDef="let usuario">
+      <button mat-icon-button (click)="irAlDetalle(usuario.id)"> <mat-icon>visibility</mat-icon> </button>
+    </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="eliminar">
+    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+    <td mat-cell *matCellDef="let usuario">
+      <button mat-icon-button (click)="eliminarAlumno(usuario)"> <mat-icon>close</mat-icon> </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
