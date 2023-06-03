@@ -27,7 +27,7 @@ export class CursosComponent implements OnInit{
   
   dataSource = new MatTableDataSource<Cursos>();
   
-  displayedColumns = ['id','nombre','fechaIni','fechaFin','eliminar', 'ver_detalle'];
+  displayedColumns = ['id','materia','fechaIni','fechaFin','eliminar', 'ver_detalle'];
 
   ngOnInit(): void {
     this.cursosService.obtenerCursos()

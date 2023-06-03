@@ -12,8 +12,7 @@ export interface alumno{
   id: number;
   nombre: string;
   apellido: string;
-  curso: number;
-  carrera: string;
+  fechaRegistro: Date;
 }
 
 
@@ -30,7 +29,7 @@ export class AlumnosComponent {
 
     dataSource = new MatTableDataSource<alumno>();
 
-    displayedColumns: string[] = ['id','nombreCompleto','curso','carrera', 'eliminar', 'ver_detalle'];
+    displayedColumns: string[] = ['id','nombreCompleto','fechaRegistro', 'eliminar', 'ver_detalle'];
 
 
 constructor (private matDialog: MatDialog,

@@ -13,14 +13,14 @@ export class AbmAlumnosComponent {
     
     nombreControl= new FormControl('',[Validators.required, Validators.minLength(3)])
     apellidoControl= new FormControl('',[Validators.required, Validators.minLength(3)])
-    cursoControl= new FormControl('',[Validators.required])
-    carreraControl= new FormControl('',[Validators.required, Validators.maxLength(10)])
+    fechaRegistroControl= new FormControl('',[Validators.required])
+    
 
     alumnosForm = new FormGroup({
       nombre: this.nombreControl,
       apellido: this.apellidoControl,
-      curso: this.cursoControl,
-      carrera: this.carreraControl
+      fechaRegistro: this.fechaRegistroControl,
+      
     })
 
   constructor(private dialogRef: MatDialogRef<AbmAlumnosComponent>){}
