@@ -16,5 +16,69 @@
         "token": "asdf",
         "user": "admin"
         }
-    ]
+    ],
+ 
+    "courses": [
+        {"id": 1,
+         "subjectsId": 1,
+         "fecha_ini": "2023-05-02T01:27:59.631Z",
+         "fech_fin": "2023-07-02T01:27:59.631Z"
+        },
+
+        {"id": 2,
+        "subjectsId": 2,
+        "fecha_ini": "2023-04-05T01:27:59.631Z",
+        "fech_fin": "2023-06-05T01:27:59.631Z"
+},
+        {"id": 3,
+         "subjetsId": 3,
+         "fecha_ini": "2023-05-02T01:27:59.631Z",
+         "fech_fin": "2023-07-02T01:27:59.631Z"
+        }
+],
+
+  "subjects": [
+    {"id": 1,
+     "nombre": "angular",
+     "descripcion": "curso de dos meses"
+    },
+    {"id": 2,
+     "nombre": "html y css",
+     "descripcion": "curso base de programacion web"
+    },
+    {"id": 3,
+    "nombre": "JavaScript",
+    "descripcion": "curso base de programacion web"
+   }
+  ],
+  "inscription": [
+    {"id": 1,
+     "studentId": 1,
+     "courseId": 1,
+     "subjectId":1
+    },
+    {"id": 2,
+    "studentId": 2,
+    "courseId": 3,
+    "subjectId":2
+   },
+   {"id": 3,
+   "studentId": 2,
+   "courseId": 1,
+   "subjectId":1
+  }
+  ],
+"students": [
+  {"id": 1,
+   "nombre": "Karina",
+   "apellido": "LaPrincesita",
+   "fecha_registro":"2023-06-05T01:27:59.631Z"
+  },
+  {"id": 2,
+  "nombre": "Nahuel",
+   "apellido": "Perez",
+   "fecha_registro":"2023-05-15T01:27:59.631Z"
+ }
+]
+    
 }

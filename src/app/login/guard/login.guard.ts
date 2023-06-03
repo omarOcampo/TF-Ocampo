@@ -23,15 +23,5 @@ export class LoginGuard implements CanActivate {
           return true
          }
         })
-      )
-
-      if (!isLogged){
-        return this.router.createUrlTree (['login'])
-      }
-    
-      return true;
-  
-  
-  }
-  
-}
+      ) 
+}}

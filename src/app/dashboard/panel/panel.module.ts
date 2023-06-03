@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
 import { CursosComponent } from 'src/app/cursos/cursos.component';
 import { AlumnoDetalleComponent } from 'src/app/alumnos/pages/alumno-detalle/alumno-detalle.component';
 import { CursoDetallesComponent } from 'src/app/cursos/pages/curso-detalles/curso-detalles.component';
+import { InscripcionesComponent } from 'src/app/inscripciones/inscripciones.component';
+
 
 
 
@@ -54,6 +56,13 @@ MatSidenavModule
         path: ':id',
         component: CursoDetallesComponent,
       }]
+      },
+      {
+        path:'inscripciones',
+        children: [{
+          path:'',
+          component: InscripcionesComponent,
+        }]
       }
     ])
     
