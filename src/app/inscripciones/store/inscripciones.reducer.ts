@@ -40,6 +40,33 @@ export const reducer = createReducer<State>(
       error: action.error
     }
   }),
+  on(InscripcionesActions.deleteInscripcion, (state) => {
+    return{
+      ...state,
+      loading:true,
+    }
+  }),
+
+
+  on(InscripcionesActions.deleteInscripcionSuccess, (state, action) => {
+    return{
+      ...state,
+      inscripciones: state.inscripciones.filter((i)=> i.id !== action.data),
+      loading:false
+
+    }
+  }),
+
+
+on(InscripcionesActions.deleteInscripcionFailure, (state, action) => {
+  return{
+    ...state,
+    loading:false,
+    error: action.error
+  
+  }
+}
+),
 );
 
 export const inscripcionesFeature = createFeature({

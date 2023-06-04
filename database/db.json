@@ -1,84 +1,93 @@
 {
-    "usuarios": [
-        {"id": 1,
-        "nombre": "Omar",
-        "apellido": "Ocampo",
-        "email": "omar@gmail.com",
-        "password": "12345",
-        "token": "qwer",
-        "user": "admin"
-        },
-        {"id": 2,
-        "nombre": "Jose",
-        "apellido": "Ocampo",
-        "email": "jose@gmail.com",
-        "password": "12345",
-        "token": "asdf",
-        "user": "admin"
-        }
-    ],
- 
-    "courses": [
-        {"id": 1,
-         "subjectsId": 1,
-         "fechaIni": "2023-04-05T01:27:59.631Z",
-         "fechaFin": "2023-06-05T01:27:59.631Z"
-        },
-
-        {"id": 2,
-        "subjectsId": 2,
-        "fechaIni": "2023-05-05T01:27:59.631Z",
-        "fechaFin": "2023-08-05T01:27:59.631Z"
-},
-        {"id": 3,
-         "subjectsId": 2,
-         "fechaIni": "2023-05-02T01:27:59.631Z",
-         "fechaFin": "2023-07-02T01:27:59.631Z"
-        }
-],
-
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Omar",
+      "apellido": "Ocampo",
+      "email": "omar@gmail.com",
+      "password": "12345",
+      "token": "qwer",
+      "user": "admin"
+    },
+    {
+      "id": 2,
+      "nombre": "Jose",
+      "apellido": "Ocampo",
+      "email": "jose@gmail.com",
+      "password": "12345",
+      "token": "asdf",
+      "user": "admin"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "subjectsId": 1,
+      "fechaIni": "2023-04-05T01:27:59.631Z",
+      "fechaFin": "2023-06-05T01:27:59.631Z"
+    },
+    {
+      "id": 2,
+      "subjectsId": 2,
+      "fechaIni": "2023-05-05T01:27:59.631Z",
+      "fechaFin": "2023-08-05T01:27:59.631Z"
+    },
+    {
+      "id": 3,
+      "subjectsId": 2,
+      "fechaIni": "2023-05-02T01:27:59.631Z",
+      "fechaFin": "2023-07-02T01:27:59.631Z"
+    }
+  ],
   "subjects": [
-    {"id": 1,
-     "nombre": "angular",
-     "description": "curso de dos meses"
+    {
+      "id": 1,
+      "nombre": "angular",
+      "description": "curso de dos meses"
     },
-    {"id": 2,
-     "nombre": "html y css",
-     "description": "curso base de programacion web"
+    {
+      "id": 2,
+      "nombre": "html y css",
+      "description": "curso base de programacion web"
     },
-    {"id": 3,
-    "nombre": "JavaScript",
-    "description": "curso base de programacion web"
-   }
+    {
+      "id": 3,
+      "nombre": "JavaScript",
+      "description": "curso base de programacion web"
+    }
   ],
   "inscription": [
-    {"id": 1,
-     "studentId": 1,
-     "courseId": 1,
-     "subjectId":1
+    {
+      "id": 1,
+      "studentId": 1,
+      "courseId": 1,
+      "subjectId": 1
     },
-    {"id": 2,
-    "studentId": 2,
-    "courseId": 3,
-    "subjectId":2
-   },
-   {"id": 3,
-   "studentId": 2,
-   "courseId": 1,
-   "subjectId":1
-  }
+    {
+      "id": 2,
+      "studentId": 2,
+      "courseId": 3,
+      "subjectId": 2
+    },
+    {
+      "id": 3,
+      "studentId": 2,
+      "courseId": 1,
+      "subjectId": 1
+    }
   ],
-"students": [
-  {"id": 1,
-   "nombre": "Karina",
-   "apellido": "LaPrincesita",
-   "fechaRegistro":"2023-06-05T01:27:59.631Z"
-  },
-  {"id": 2,
-  "nombre": "Nahuel",
-   "apellido": "Perez",
-   "fechaRegistro":"2023-05-15T01:27:59.631Z"
- }
-]
-    
+  "students": [
+    {
+      "id": 1,
+      "nombre": "Karina",
+      "apellido": "LaPrincesita",
+      "fechaRegistro": "2023-06-05T01:27:59.631Z"
+    },
+    {
+      "id": 2,
+      "nombre": "Nahuel",
+      "apellido": "Perez",
+      "fechaRegistro": "2023-05-15T01:27:59.631Z"
+    }
+  ]
 }

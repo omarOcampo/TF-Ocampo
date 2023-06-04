@@ -6,9 +6,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { InscripcionesEffects } from './store/inscripciones.effects';
 import { StoreModule } from '@ngrx/store';
 import { inscripcionesFeature } from './store/inscripciones.reducer';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -22,9 +25,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     EffectsModule.forFeature([InscripcionesEffects]),
     StoreModule.forFeature(inscripcionesFeature),
     MatButtonModule,
-    MatButtonModule,
     MatInputModule,
-    ReactiveFormsModule    
+    MatFormFieldModule,
+    MatTableModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDialogModule
+    
     
   ]
 })
