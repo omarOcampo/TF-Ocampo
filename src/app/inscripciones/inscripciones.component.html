@@ -1,7 +1,7 @@
 <p *ngIf="(state$|async)?.loading"> CARGANDO DATA...</p>
 
-
- <!--<pre> {{( state$ | async )?.inscripciones | json }} </pre>  -->
+  <button (click)="crearInscripcion()" type="button" mat-button> Agregar Inscripcion </button> 
+ 
  <ul>
     <li *ngFor="let inscripciones of ( state$ | async )?.inscripciones">
         {{ inscripciones.student.nombre + '  -  ' + inscripciones.subject.nombre + '  -  ' + (inscripciones.course.fechaIni | date:'dd/MM/YYYY')}} 

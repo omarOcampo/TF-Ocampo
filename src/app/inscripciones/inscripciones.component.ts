@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { State } from './store/inscripciones.reducer';
 import { Inscription } from './models';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { InscripcionesDialogComponent } from './component/inscripciones-dialog/inscripciones-dialog.component';
 
 @Component({
   selector: 'app-inscripciones',
@@ -17,7 +19,8 @@ export class InscripcionesComponent implements OnInit {
   state$: Observable<State>
   
   constructor (private inscripcionesService: InscripcionesServicesService,
-      private store: Store) {
+      private store: Store,
+      private matDialog: MatDialog) {
         this.state$ = this.store.select(selectInscripcionesState)
       }
     
@@ -29,6 +32,10 @@ export class InscripcionesComponent implements OnInit {
 }
 eliminarInscripcionPorId(id: number) : void{
   this.store.dispatch(InscripcionesActions.deleteInscripcion({id}))
+}
+
+crearInscripcion (): void{
+this.matDialog.open(InscripcionesDialogComponent)
 }
 
 }

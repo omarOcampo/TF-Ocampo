@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { InscripcionesComponent } from '../inscripciones/inscripciones.component';
 import { IncripcionesRoutingModule } from './incripciones-routing.module';
 import { EffectsModule } from '@ngrx/effects';
@@ -12,12 +12,16 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { InscripcionesDialogComponent } from './component/inscripciones-dialog/inscripciones-dialog.component';
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    InscripcionesComponent
+    InscripcionesComponent,
+    InscripcionesDialogComponent
   ],
   imports: [
     CommonModule,
@@ -29,9 +33,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatTableModule,
     MatIconModule,
-    MatFormFieldModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    MatSelectModule,
+    ReactiveFormsModule    
     
   ]
 })

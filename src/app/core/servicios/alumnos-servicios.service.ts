@@ -41,7 +41,7 @@ export class AlumnosServiciosService {
     private httpClient: HttpClient
   ) { }
 
-  get obtenerAlumno(): Observable<alumno[]> {
+  getObtenerAlumno(): Observable<alumno[]> {
     return this.httpClient.get<alumno []>('http://localhost:3000/students')
     .pipe(
       tap ((alumno: alumno[])=> this.alumnos$.next(alumno)),

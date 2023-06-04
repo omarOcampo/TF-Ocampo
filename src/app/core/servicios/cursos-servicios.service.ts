@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { BehaviorSubject, Observable, mergeMap, tap } from 'rxjs';
-import { Cursos } from 'src/app/cursos/models';
+import { Cursos, cursosWithSubject } from 'src/app/cursos/models';
 
 
 const CURSOS_MOCKS : Cursos[] = [
@@ -38,9 +38,13 @@ export class CursosServiciosService {
 
 
  obtenerCursos(): Observable<Cursos[]>{
-  return this.httpClient.get<Cursos []>('http://localhost:3000/courses')
+  return this.httpClient.get<Cursos[]>('http://localhost:3000/courses')
     .pipe(
       tap ((cursos: Cursos[])=> this.cursos$.next(cursos)),
       mergeMap(()=> this.cursos$.asObservable())
     )}
+
+    obtenerCursosWithSubject(): Observable<cursosWithSubject[]>{
+      return this.httpClient.get<cursosWithSubject[]>('http://localhost:3000/courses?_expand=subject')
+      }
 }
