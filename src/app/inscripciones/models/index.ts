@@ -23,4 +23,4 @@ export interface InscriptionWhitCourse extends Inscription {
     course: Cursos;
 }
 
-export type InscriptionWhitAll =  InscriptionWhitStudent & InscriptionWhitSubject & InscriptionWhitCourse
+export type InscriptionWithAll =  InscriptionWhitStudent & InscriptionWhitSubject & InscriptionWhitCourse

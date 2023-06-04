@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { InscripcionesServicesService } from './servicios/inscripciones-services.service';
+import { Store } from '@ngrx/store';
+import { InscripcionesActions } from './store/inscripciones.actions';
+import { selectInscripcionesState } from './store/inscripciones.selectors';
+import { Observable } from 'rxjs';
+import { State } from './store/inscripciones.reducer';
 
 @Component({
   selector: 'app-inscripciones',
@@ -7,9 +12,17 @@ import { InscripcionesServicesService } from './servicios/inscripciones-services
   styleUrls: ['./inscripciones.component.scss']
 })
 export class InscripcionesComponent implements OnInit {
-    constructor (private inscripcionesService: InscripcionesServicesService) {}
-    ngOnInit(): void {
-      this.inscripcionesService.getAllInscriptions().subscribe(console.log);
+  state$: Observable<State>
+  
+  constructor (private inscripcionesService: InscripcionesServicesService,
+      private store: Store) {
+        this.state$ = this.store.select(selectInscripcionesState)
+      }
+    
+    
+   ngOnInit(): void {
+      //this.inscripcionesService.getAllInscriptions().subscribe(console.log);
+      this.store.dispatch(InscripcionesActions.loadInscripciones())
 
 }
 }

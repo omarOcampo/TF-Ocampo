@@ -14,9 +14,9 @@ const initialState: AuthState = {
 
 export const authReducer = createReducer(
     initialState,
-    on(establecerUsuario, (currentState, { payLoad }) => {
+    on(establecerUsuario, (currentState, action) => {
         return {
-            authUser: payLoad
+            authUser: action.payLoad
         }
     }
     ))

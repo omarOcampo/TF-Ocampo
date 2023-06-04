@@ -1,1 +1,3 @@
-<p>inscripciones works!</p>
+<p *ngIf="(state$|async)?.loading"> CARGANDO DATA...</p>
+
+<pre #ifNotLoading> {{( state$ | async )?.inscripciones | json }} </pre> 

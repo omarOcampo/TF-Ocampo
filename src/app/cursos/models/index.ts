@@ -1,4 +1,4 @@
-import { subjects } from "src/app/subjetcs";
+import { subjects } from "src/app/subjects";
 
 export interface Cursos{
     id:number;

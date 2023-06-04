@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InscripcionesComponent } from './inscripciones.component';
 import { RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -16,7 +17,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    
   ],
   exports: [
     RouterModule
