@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import links, { NavItem }  from './nav-items';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, Subscription, map } from 'rxjs';
 import { Usuario } from 'src/app/login/models';
 import { LoginServicioService } from 'src/app/login/servicio/login-servicio.service';
 @Component({
@@ -14,6 +14,8 @@ export class PanelComponent implements OnDestroy{
    
   loginUser: Usuario | null =null;
   
+  loginUser$ = new Subject<Usuario | null>();
+ 
   suscripcionLoginUser: Subscription | null =null;
   
   links = links;
@@ -32,6 +34,9 @@ export class PanelComponent implements OnDestroy{
     this.router.navigate(['login']);
     localStorage.removeItem('token');
    }
- 
+   getVeryFyRole(link: NavItem): Observable<boolean>{
+    return this.loginUser$.pipe(
+      map((usuarioAuth) => link.allowedRoles.some((r) =>r === usuarioAuth?.role)));
+  }
    }
-
+ 

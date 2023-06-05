@@ -20,7 +20,7 @@ export class InscripcionesServicesService {
   }
 
   getInscriptionWithAllById( id: number): Observable <InscriptionWithAll>{
-    return this.httpClient.get <InscriptionWithAll>(`http://localhost:3000/inscription/${id}?_expand=student&_expand=subject&_expand=course`)
+    return this.httpClient.get <InscriptionWithAll>('http://localhost:3000/inscription/${id}?_expand=student&_expand=subject&_expand=course')
   }
 
   getAllInscriptions () : Observable<InscriptionWithAll[]>{

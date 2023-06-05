@@ -2,7 +2,7 @@ export interface NavItem {
     path: string;
     title: string;
     icon?: string;
-    allowerRoles: string[];
+    allowedRoles: string[];
 }
 
 const links: NavItem [] = [
@@ -10,20 +10,20 @@ const links: NavItem [] = [
         path: 'alumnos',
         title: 'Estudiantes',
         icon: 'person',
-        allowerRoles: [],
+        allowedRoles: [],
     },
 
     {
         path: 'cursos',
         title: 'Cursos',
         icon: 'school',
-        allowerRoles: ['admin'],
+        allowedRoles: ['admin'],
     },
     {
         path: 'inscripciones',
         title: 'Inscripciones',
         icon: 'book',
-        allowerRoles: [],
+        allowedRoles: [],
     },
 
 ]

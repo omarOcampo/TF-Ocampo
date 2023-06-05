@@ -22,7 +22,7 @@ export interface LoginFormValue {
 })
 export class LoginServicioService {
    
- private loginUser$ = new BehaviorSubject<Usuario | null>(null);
+ loginUser$ = new BehaviorSubject<Usuario | null>(null);
 
   constructor(private router: Router,
               private httpClient: HttpClient,
@@ -64,9 +64,9 @@ export class LoginServicioService {
     this.router.navigate(['auth'])
   }
 
-  veryFyRole(link: NavItem): Observable<boolean>{
+   getVeryFyRole(link: NavItem): Observable<boolean>{
     return this.loginUser$.pipe(
-      map((usuarioAuth) => link.allowerRoles.some((r) =>r === usuarioAuth?.role)));
+      map((usuarioAuth) => link.allowedRoles.some((r) =>r === usuarioAuth?.role)));
   }
 
   verificarToken(): Observable <Boolean>{
