@@ -14,6 +14,8 @@ import { CursosComponent } from 'src/app/cursos/cursos.component';
 import { AlumnoDetalleComponent } from 'src/app/alumnos/pages/alumno-detalle/alumno-detalle.component';
 import { CursoDetallesComponent } from 'src/app/cursos/pages/curso-detalles/curso-detalles.component';
 import { InscripcionesComponent } from 'src/app/inscripciones/inscripciones.component';
+import { LoginModule } from 'src/app/login/login.module';
+import { LoginServicioService } from 'src/app/login/servicio/login-servicio.service';
 
 
 

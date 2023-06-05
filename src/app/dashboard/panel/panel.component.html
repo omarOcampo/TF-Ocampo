@@ -1,11 +1,16 @@
 
 <mat-drawer-container  class="example-container" autosize >
-    <mat-drawer #drawer class="example-sidenav" mode="side">
+
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0DnVgk-2qQYe-4MgFmbMfeZfk8qqkb0yhg&usqp=CAU">
+    <p>{{ loginUser?.email }} </p>
+    <p>{{ loginUser?.role }} </p>  
       <mat-nav-list>
-        <a [routerLink]="link.path" mat-list-item *ngFor="let link of links">
-          <mat-icon>{{link.icon}}</mat-icon>{{ link.title }}</a> 
-        
-        <a (click)="logout()" mat-list-item> Cerrar Sesion </a>
+      <ng-container *ngFor="let link of links">
+        <a [routerLink]="link.path" mat-list-item >
+        <mat-icon>{{link.icon}}</mat-icon>{{ link.title }}</a> 
+     </ng-container>
+       <a (click)="logout()" mat-list-item> Cerrar Sesion </a>
       </mat-nav-list>
     </mat-drawer>
   
@@ -20,7 +25,7 @@
       <!-- mi pagina -->
       <main>
         <router-outlet></router-outlet>
-        <!-- <app-alumnos></app-alumnos> --> 
+      
       </main>
     </div> 
 </mat-drawer-container>

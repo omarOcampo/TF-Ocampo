@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from '../shared/pipes/pipes.module';
 import { DirectivasModule } from '../shared/directivas/directivas.module';
+import { LoginServicioService } from './servicio/login-servicio.service';
 
 
 
@@ -25,6 +26,10 @@ import { DirectivasModule } from '../shared/directivas/directivas.module';
     PipesModule,
     DirectivasModule
     
+  ],
+  exports:[
+    LoginComponent,
+  
   ]
 })
 export class LoginModule { }

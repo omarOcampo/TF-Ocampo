@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CursosServiciosService } from '../core/servicios/cursos-servicios.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { Cursos } from './models';
+import { Cursos, cursosWithSubject } from './models';
 import { AbmCursosComponent } from './abm-cursos/abm-cursos.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,7 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 
 export class CursosComponent implements OnInit{
-  
+  cursos: cursosWithSubject[]= [];
  
   constructor(private cursosService: CursosServiciosService,
               private router: Router,
@@ -33,8 +33,16 @@ export class CursosComponent implements OnInit{
     this.cursosService.obtenerCursos()
     .subscribe({
       next: (cursos) => this.dataSource.data = cursos
-    });
-  }
+    }),
+    
+    this.cursosService.obtenerCursosWithSubject()
+    .subscribe ({
+      next: (res) => {
+        this.cursos = res;
+      }
+    })
+    }
+  
   
   crearCurso(): void {
     const dialog = this.matDialog.open(AbmCursosComponent)

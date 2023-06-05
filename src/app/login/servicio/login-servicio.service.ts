@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store';
 import { establecerUsuario } from 'src/app/store/auth/auth.actions';
 import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
+import { NavItem } from 'src/app/dashboard/panel/nav-items';
 
 
 
@@ -60,10 +61,13 @@ export class LoginServicioService {
 
   logout(): void {
     localStorage.removeItem('authUser');
-    this.loginUser$.next(null);
     this.router.navigate(['auth'])
   }
 
+  veryFyRole(link: NavItem): Observable<boolean>{
+    return this.loginUser$.pipe(
+      map((usuarioAuth) => link.allowerRoles.some((r) =>r === usuarioAuth?.role)));
+  }
 
   verificarToken(): Observable <Boolean>{
     const token= localStorage.getItem ('token');

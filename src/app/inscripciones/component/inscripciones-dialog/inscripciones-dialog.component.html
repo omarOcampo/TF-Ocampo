@@ -10,14 +10,13 @@
 
     <mat-form-field>
         <mat-label> Cursos</mat-label>
-        <mat-select [formControl]="courseIdControl">
-            <mat-option [value]="curso.id" *ngFor="let curso of cursos"> {{curso.id}} - {{curso.subject.nombre}} </mat-option>
+        <mat-select [formControl]="selectedCourseControl">
+            <mat-option [value]="curso" *ngFor="let curso of cursos"> {{curso.id}} - {{curso.subject.nombre}} </mat-option>
         </mat-select>
     </mat-form-field>  
-</form>
+ </form>
 </div>
-
 <div mat-dialog-actions>
- <button mat-button type="button"> CANCELAR</button>
- <button mat-button type="button"> GUARDAR </button>
-</div>
+    <button mat-dialog-close mat-button type="button"> CANCELAR</button>
+    <button (click)="onSave()" mat-button type="button"> GUARDAR </button>
+   </div>

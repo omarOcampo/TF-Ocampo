@@ -7,7 +7,7 @@
       "email": "omar@gmail.com",
       "password": "12345",
       "token": "qwer",
-      "user": "admin"
+      "role": "admin"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "email": "jose@gmail.com",
       "password": "12345",
       "token": "asdf",
-      "user": "admin"
+      "role": "alumno"
     }
   ],
   "courses": [
@@ -47,12 +47,12 @@
     },
     {
       "id": 2,
-      "nombre":"html y css",
+      "nombre": "html y css",
       "description": "curso base de programacion web"
     },
     {
       "id": 3,
-      "nombre":"JavaScript",
+      "nombre": "JavaScript",
       "description": "curso base de programacion web"
     }
   ],
@@ -74,6 +74,12 @@
       "studentId": 2,
       "courseId": 1,
       "subjectId": 1
+    },
+    {
+      "studentId": 1,
+      "courseId": 1,
+      "subjectId": 1,
+      "id": 4
     }
   ],
   "students": [

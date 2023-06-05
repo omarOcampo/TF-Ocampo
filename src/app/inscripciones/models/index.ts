@@ -23,4 +23,9 @@ export interface InscriptionWhitCourse extends Inscription {
     course: Cursos;
 }
 
+export interface CreateInscripcionData {
+    studentId:number;
+    courseId: number;
+    subjectId: number
+}
 export type InscriptionWithAll =  InscriptionWhitStudent & InscriptionWhitSubject & InscriptionWhitCourse

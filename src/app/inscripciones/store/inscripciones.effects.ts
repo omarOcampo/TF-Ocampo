@@ -9,6 +9,18 @@ import { InscripcionesServicesService } from '../servicios/inscripciones-service
 @Injectable()
 export class InscripcionesEffects {
 
+  createInscripciones$ = createEffect (() =>{
+    return this.actions$.pipe(
+      ofType (InscripcionesActions.createInscripcion),
+      concatMap ((action) => this.inscripcionesService.createInscripcion (action.data)
+      .pipe(
+        map ((res) => InscripcionesActions.createInscripcionSuccess ({ data: res})),
+        catchError((error) => of (InscripcionesActions.createInscripcionFailure ({error})))
+      )
+      )
+    )
+  })
+  
   loadInscripciones$ = createEffect(() => {
     return this.actions$.pipe(
 
