@@ -49,4 +49,9 @@ export class AlumnosServiciosService {
     )
   }
 
+  obtenerAlumnoPorId(id: number) : Observable<alumno | undefined>{
+    return this.alumnos$.asObservable().pipe(
+      map((alumnos)=> alumnos.find((a)=> a.id === id))
+    )
+  }
 }

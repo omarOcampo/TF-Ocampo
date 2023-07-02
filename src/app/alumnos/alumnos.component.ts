@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AlumnosServiciosService } from '../core/servicios/alumnos-servicios.service';
 import { Observable } from 'rxjs';
 import { TimeService} from '../core/servicios/time.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 export interface alumno{
@@ -35,12 +35,14 @@ export class AlumnosComponent {
 constructor (private matDialog: MatDialog,
              private alumnosService: AlumnosServiciosService,
              private timeServicio: TimeService,
-             private router: Router)
+             private router: Router,
+             private activatedRoute: ActivatedRoute,)
              {
                this.alumnosService.getObtenerAlumno()
                .subscribe((alumno) => {this.dataSource.data= alumno;
                })
               this.hora$ = this.timeServicio.reloj;
+             
              };
  
  crearAlumnos(): void{
@@ -80,6 +82,9 @@ constructor (private matDialog: MatDialog,
   }
 
   irAlDetalle(alumnoId: number):void {
-    this.router.navigate(['dashboard','alumnos', alumnoId])
+    this.router.navigate([ alumnoId],
+      {
+        relativeTo: this.activatedRoute,
+      })
   }
 }

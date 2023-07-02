@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { BehaviorSubject, Observable, mergeMap, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, mergeMap, tap } from 'rxjs';
 import { Cursos, cursosWithSubject } from 'src/app/cursos/models';
 
 
@@ -34,7 +34,7 @@ export class CursosServiciosService {
   constructor(
     private router:Router,
     private httpClient: HttpClient
-  ) { }
+  ) {}
 
 
  obtenerCursos(): Observable<Cursos[]>{
@@ -44,7 +44,12 @@ export class CursosServiciosService {
       mergeMap(()=> this.cursos$.asObservable())
     )}
 
-    obtenerCursosWithSubject(): Observable<cursosWithSubject[]>{
+obtenerCursoPorId(id: number): Observable<Cursos | undefined>{
+  return  this.cursos$.asObservable().pipe
+  (map((cursos)=> cursos.find((a)=> a.id === id)))
+}
+
+obtenerCursosWithSubject(): Observable<cursosWithSubject[]>{
       return this.httpClient.get<cursosWithSubject[]>('http://localhost:3000/courses?_expand=subject')
       }
 }
