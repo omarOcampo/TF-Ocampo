@@ -1,7 +1,8 @@
 
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { inject } from '@angular/core/testing';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -23,7 +24,11 @@ export class AbmAlumnosComponent {
       
     })
 
-  constructor(private dialogRef: MatDialogRef<AbmAlumnosComponent>){}
+  constructor(private dialogRef: MatDialogRef<AbmAlumnosComponent>,
+    @Inject(MAT_DIALOG_DATA) private  data: any,
+    ){
+      console.log(data);
+    }
     
   guardar():void{
     if(this.alumnosForm.valid){

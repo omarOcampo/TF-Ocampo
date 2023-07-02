@@ -29,7 +29,7 @@ export class AlumnosComponent {
 
     dataSource = new MatTableDataSource<alumno>();
 
-    displayedColumns: string[] = ['id','nombreCompleto','fechaRegistro', 'eliminar', 'ver_detalle'];
+    displayedColumns: string[] = ['id','nombreCompleto','fechaRegistro','editar' ,'eliminar', 'ver_detalle'];
 
 
 constructor (private matDialog: MatDialog,
@@ -63,6 +63,21 @@ constructor (private matDialog: MatDialog,
     (alumnoAct) => alumnoAct.id !== alumnoAEliminar.id,
   )
  }
+
+  editarAlumno(alumnoParaEditar: alumno) : void {
+    const dialog = this.matDialog.open(AbmAlumnosComponent, {
+      data: { alumnoParaEditar}
+    });
+    dialog.afterClosed().subscribe((dataDelalumnoEditado) => {
+      if(dataDelalumnoEditado){
+        this.dataSource.data = this.dataSource.data.map(
+          (alumnoActual) => alumnoActual.id === alumnoParaEditar.id?
+          ({...alumnoActual, ...dataDelalumnoEditado}): alumnoActual,
+
+        );
+      }
+    })
+  }
 
   irAlDetalle(alumnoId: number):void {
     this.router.navigate(['dashboard','alumnos', alumnoId])
