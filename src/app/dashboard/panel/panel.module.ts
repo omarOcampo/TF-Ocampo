@@ -16,6 +16,7 @@ import { CursoDetallesComponent } from 'src/app/cursos/pages/curso-detalles/curs
 import { InscripcionesComponent } from 'src/app/inscripciones/inscripciones.component';
 import { LoginModule } from 'src/app/login/login.module';
 import { LoginServicioService } from 'src/app/login/servicio/login-servicio.service';
+import { AdminGuardGuard } from 'src/app/login/guard/admin-guard.guard';
 
 
 
@@ -50,6 +51,7 @@ MatSidenavModule
       },
       {
         path: 'cursos',
+        canActivate: [AdminGuardGuard],
         children: [{
           path:'',
           component: CursosComponent
