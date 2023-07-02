@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, Subscription, map } from 'rxjs';
 import { Usuario } from 'src/app/login/models';
 import { LoginServicioService } from 'src/app/login/servicio/login-servicio.service';
+import { alumno } from 'src/app/alumnos/alumnos.component';
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
@@ -14,7 +15,7 @@ export class PanelComponent implements OnDestroy{
    
   loginUser: Usuario | null =null;
   
-  loginUser$ = new Subject<Usuario | null>();
+  loginUser$ : Observable<Usuario | null >;
  
   suscripcionLoginUser: Subscription | null =null;
   
@@ -24,7 +25,9 @@ export class PanelComponent implements OnDestroy{
     private router: Router,
     private loginServis: LoginServicioService
   ) {
-    this.suscripcionLoginUser = this.loginServis.obtenerUsuarioAutenticado().subscribe((usuario) => this.loginUser = usuario)
+    this.loginUser$ = this.loginServis.obtenerUsuarioAutenticado();
+    this.suscripcionLoginUser = this.loginServis.obtenerUsuarioAutenticado().subscribe((usuario) => this.loginUser = usuario);
+    
   }
   ngOnDestroy(): void {
     this.suscripcionLoginUser?.unsubscribe();

@@ -50,6 +50,6 @@ obtenerCursoPorId(id: number): Observable<Cursos | undefined>{
 }
 
 obtenerCursosWithSubject(): Observable<cursosWithSubject[]>{
-      return this.httpClient.get<cursosWithSubject[]>('http://localhost:3000/courses?_expand=subject')
+      return this.httpClient.get<cursosWithSubject[]>(`http://localhost:3000/courses?_expand=subject`)
       }
 }

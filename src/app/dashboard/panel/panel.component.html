@@ -3,12 +3,14 @@
 
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0DnVgk-2qQYe-4MgFmbMfeZfk8qqkb0yhg&usqp=CAU">
-    <p>{{ loginUser?.email }} </p>
-    <p>{{ loginUser?.role }} </p>  
+    <p>{{ (loginUser$ | async)?.nombre }} </p>
+    <p>{{ (loginUser$ | async)?.email }} </p>
+    <p>{{ (loginUser$ | async)?.role }} </p>  
       <mat-nav-list>
       <ng-container *ngFor="let link of links">
-        <a [routerLink]="link.path" mat-list-item 
-        *ngIf="!link.allowedRoles.length || (getVeryFyRole(link))">
+        <a [routerLink]="link.path" 
+            mat-list-item 
+           *ngIf="!link.allowedRoles.length || (getVeryFyRole(link)| async)">
         <mat-icon>{{link.icon}}</mat-icon>{{ link.title }}</a> 
      </ng-container>
        <a (click)="logout()" mat-list-item> Cerrar Sesion </a>
